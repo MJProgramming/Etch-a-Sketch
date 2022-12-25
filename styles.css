@@ -1,0 +1,64 @@
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+} 
+
+.headcont {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid black;
+}
+
+.headcont h1 {
+    justify-self: center;
+    align-self: center;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.grid-container {
+    display: grid;
+    border: 1px solid black;
+    align-self: flex-end;
+    margin: 20px;
+    width: 450px;
+    height: 450px;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+.grid-item {
+    border: 1px solid black;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+#applybtn {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#clearbtn {
+    color: black;
+    background-color: white;
+    padding: 10px;
+    margin-top: 5px;
+}
