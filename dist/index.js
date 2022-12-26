@@ -1,10 +1,11 @@
 "use strict";
 const gridcont = document.querySelector('.grid-container');
-const inputContainer = document.querySelector('.input-container');
-const para = inputContainer === null || inputContainer === void 0 ? void 0 : inputContainer.querySelector('p');
+const para = document.getElementsByClassName('para-size')[0];
 const inputslide = document.getElementById('grid-input');
 const apply = document.getElementById('applybtn');
 const clear = document.getElementById('clearbtn');
+const rainbow = document.getElementById('rb-mode');
+const colorBtn = document.getElementById('color-mode');
 let root = document.documentElement;
 let gridsize = document.getElementById('grid-input').value;
 createGrid(parseInt(gridsize), parseInt(gridsize));
@@ -30,15 +31,34 @@ apply === null || apply === void 0 ? void 0 : apply.addEventListener('click', ()
     createGrid(parseInt(gridsize), parseInt(gridsize));
     items = Array.from(document.getElementsByClassName('grid-item'));
 });
+rainbow === null || rainbow === void 0 ? void 0 : rainbow.addEventListener('click', () => {
+    items.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = getRandomColor();
+        });
+    });
+});
+colorBtn === null || colorBtn === void 0 ? void 0 : colorBtn.addEventListener('click', () => {
+    items.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = item.style.backgroundColor = document.getElementById('colorpick').value;
+        });
+    });
+});
 function createGrid(sizeRow, sizeCol) {
     gridcont === null || gridcont === void 0 ? void 0 : gridcont.setAttribute('style', `--grid-cols: ${sizeRow}; --grid-rows: ${sizeRow}`);
     for (let i = 0; i < (sizeRow * sizeCol); i++) {
         let item = document.createElement('div');
         item.className = 'grid-item';
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = "black";
+            item.style.backgroundColor = document.getElementById('colorpick').value;
         });
         gridcont === null || gridcont === void 0 ? void 0 : gridcont.appendChild(item);
     }
+}
+function getRandomColor() {
+    const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    const colorStr = "#" + randomColor;
+    return colorStr;
 }
 //# sourceMappingURL=index.js.map

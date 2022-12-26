@@ -1,9 +1,10 @@
 const gridcont = document.querySelector('.grid-container');
-const inputContainer = document.querySelector('.input-container');
-const para = inputContainer?.querySelector('p');
+const para = document.getElementsByClassName('para-size')[0];
 const inputslide = document.getElementById('grid-input');
 const apply = document.getElementById('applybtn');
 const clear = document.getElementById('clearbtn');
+const rainbow = document.getElementById('rb-mode');
+const colorBtn = document.getElementById('color-mode');
 let root = document.documentElement;
 
 // Cast result of getElementById to HTMLInputElement to get value 
@@ -37,6 +38,21 @@ apply?.addEventListener('click', () => {
     items = Array.from(document.getElementsByClassName('grid-item') as HTMLCollectionOf<HTMLElement>);
 });
 
+rainbow?.addEventListener('click', () => {
+     items.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = getRandomColor();
+        });
+     });
+});
+
+colorBtn?.addEventListener('click', () => {
+    items.forEach((item) => {
+        item.addEventListener('mouseover', () => {
+            item.style.backgroundColor = item.style.backgroundColor = (<HTMLInputElement>document.getElementById('colorpick')).value;
+        });
+    });
+});
 
 function createGrid(sizeRow: number, sizeCol: number): void {
     gridcont?.setAttribute('style', `--grid-cols: ${sizeRow}; --grid-rows: ${sizeRow}`)
@@ -44,8 +60,14 @@ function createGrid(sizeRow: number, sizeCol: number): void {
         let item = document.createElement('div');
         item.className = 'grid-item';
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = "black"
+            item.style.backgroundColor = (<HTMLInputElement>document.getElementById('colorpick')).value;
         });
         gridcont?.appendChild(item);
     }
+}
+
+function getRandomColor(): string {
+    const randomColor: string = Math.floor(Math.random()*16777215).toString(16);
+    const colorStr: string = "#" + randomColor;
+    return colorStr;    
 }

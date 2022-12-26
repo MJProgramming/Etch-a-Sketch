@@ -12,11 +12,20 @@
             <h1>Etch-a-Sketch</h1>
         </div>
         <div class="main-container">
-            <div class="input-container">
-                <p></p>
-                <input name="input" type="range" value="16" id="grid-input" max="30" min="4">
-                <button id="applybtn">Apply</button>
-                <button id="clearbtn">Clear</button>
+            <div class="options-container">
+                <div class="input-container">
+                    <h2>Sketchpad Options:</h2>
+                    <p class="para-size"></p>
+                    <input name="input" type="range" value="16" id="grid-input" max="100" min="4">
+                    <button id="applybtn">Apply</button>
+                    <button id="clearbtn">Clear</button>
+                </div>
+                <div class="color-container">
+                    <h2>Color Options:</h2>
+                    <input type="color" id="colorpick" value="#0000ff">
+                    <button id="color-mode">Color Mode</button>
+                    <button id="rb-mode">Rainbow Mode</button>
+                </div>
             </div>
             <div class="grid-container">
             

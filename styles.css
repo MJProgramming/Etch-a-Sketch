@@ -24,6 +24,7 @@ body {
 .main-container {
     display: flex;
     justify-content: space-around;
+    border: 2px solid black;
 }
 
 .grid-container {
@@ -37,16 +38,30 @@ body {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 }
 
-.grid-item {
-    border: 1px solid black;
+.options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .input-container {
     display: flex;
+    border: 2px solid black;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    align-self: flex-start;
     justify-content: center;
+}
+
+.color-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: flex-end;
+    justify-content: space-between;
+    border: 2px solid black;
 }
 
 #applybtn {
@@ -54,6 +69,7 @@ body {
     background-color: black;
     padding: 10px;
     margin-top: 5px;
+    border-radius: 5px;
 }
 
 #clearbtn {
@@ -61,4 +77,29 @@ body {
     background-color: white;
     padding: 10px;
     margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#colorpick {
+    padding: 0;
+    margin: 10px;
+    margin-top: -5px;
+    border-radius: 10px;
+}
+
+#color-mode {
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#rb-mode {
+    background: rgb(131,58,180);
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(69,75,252,1) 100%);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
 }
