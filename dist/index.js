@@ -6,6 +6,8 @@ const apply = document.getElementById('applybtn');
 const clear = document.getElementById('clearbtn');
 const rainbow = document.getElementById('rb-mode');
 const colorBtn = document.getElementById('color-mode');
+const maincontainer = document.querySelector('.main-container');
+let isColorMode = false;
 let root = document.documentElement;
 let gridsize = document.getElementById('grid-input').value;
 createGrid(parseInt(gridsize), parseInt(gridsize));
@@ -32,16 +34,23 @@ apply === null || apply === void 0 ? void 0 : apply.addEventListener('click', ()
     items = Array.from(document.getElementsByClassName('grid-item'));
 });
 rainbow === null || rainbow === void 0 ? void 0 : rainbow.addEventListener('click', () => {
+    isColorMode = false;
     items.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = getRandomColor();
+            let color = getRandomColor();
+            item.style.backgroundColor = color;
+            if (!isColorMode) {
+                maincontainer === null || maincontainer === void 0 ? void 0 : maincontainer.setAttribute('style', `background-color: ${color}`);
+            }
         });
     });
 });
 colorBtn === null || colorBtn === void 0 ? void 0 : colorBtn.addEventListener('click', () => {
+    isColorMode = true;
+    maincontainer === null || maincontainer === void 0 ? void 0 : maincontainer.setAttribute('style', 'background-color: white');
     items.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = item.style.backgroundColor = document.getElementById('colorpick').value;
+            item.style.backgroundColor = document.getElementById('colorpick').value;
         });
     });
 });

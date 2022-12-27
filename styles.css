@@ -6,30 +6,50 @@
 
 body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
+    display: block;
+    font-family: 'PT Sans', Calibri, Tahoma, sans-serif;
 } 
 
 .headcont {
     display: flex;
+    color: aliceblue;
     justify-content: space-around;
+    border: 1px solid black;
+    padding: 10px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,33,9,1) 52%, rgba(0,212,255,1) 100%);
     border-bottom: 2px solid black;
 }
 
-.headcont h1 {
-    justify-self: center;
+.header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.headcont img {
+    width: 70px;
+    height: auto;
+}
+
+.headcont a {
+    justify-self: flex-end;
     align-self: center;
 }
 
 .main-container {
     display: flex;
+    padding: 100px;
     justify-content: space-around;
     border: 2px solid black;
 }
 
 .grid-container {
     display: grid;
-    border: 1px solid black;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 5px;
     align-self: flex-end;
     margin: 20px;
     width: 450px;
@@ -47,7 +67,9 @@ body {
 
 .input-container {
     display: flex;
-    border: 2px solid black;
+    border: 4px solid #DE1752;
+    border-radius: 10px;
+    background-color: white;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -55,13 +77,35 @@ body {
     justify-content: center;
 }
 
+.input-container h2 {
+    color: #DE1752;
+    padding: 7px;
+    margin-bottom: -5px;
+}
+
 .color-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #DE1752;
+    background-color: white;
+    padding: 10px;
     justify-self: flex-end;
     justify-content: space-between;
-    border: 2px solid black;
+    border: 4px solid #DE1752;
+    border-radius: 8px;
+}
+
+.footer-container {
+    display: flex;
+    font-size: smaller;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,33,9,1) 52%, rgba(0,212,255,1) 100%);
 }
 
 #applybtn {

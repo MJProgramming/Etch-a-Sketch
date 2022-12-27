@@ -5,6 +5,8 @@ const apply = document.getElementById('applybtn');
 const clear = document.getElementById('clearbtn');
 const rainbow = document.getElementById('rb-mode');
 const colorBtn = document.getElementById('color-mode');
+const maincontainer = document.querySelector('.main-container');
+let isColorMode: boolean = false;
 let root = document.documentElement;
 
 // Cast result of getElementById to HTMLInputElement to get value 
@@ -39,14 +41,21 @@ apply?.addEventListener('click', () => {
 });
 
 rainbow?.addEventListener('click', () => {
+    isColorMode = false;
      items.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = getRandomColor();
+            let color = getRandomColor();
+            item.style.backgroundColor = color;
+            if (!isColorMode) {
+                maincontainer?.setAttribute('style', `background-color: ${color}`);
+            }
         });
      });
 });
 
 colorBtn?.addEventListener('click', () => {
+    isColorMode = true;
+    maincontainer?.setAttribute('style', 'background-color: white');
     items.forEach((item) => {
         item.addEventListener('mouseover', () => {
             item.style.backgroundColor = (<HTMLInputElement>document.getElementById('colorpick')).value;
