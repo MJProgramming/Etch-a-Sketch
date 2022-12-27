@@ -49,7 +49,7 @@ rainbow?.addEventListener('click', () => {
 colorBtn?.addEventListener('click', () => {
     items.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = item.style.backgroundColor = (<HTMLInputElement>document.getElementById('colorpick')).value;
+            item.style.backgroundColor = (<HTMLInputElement>document.getElementById('colorpick')).value;
         });
     });
 });
